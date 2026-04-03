@@ -11,10 +11,11 @@ export default function ApplyForm() {
   const service = services.find((s) => s.id === id);
 
   const [formData, setFormData] = useState({
-    name: '',
+    full_name: '',
     phone: '',
     pincode: '',
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -40,7 +41,7 @@ export default function ApplyForm() {
   };
 
   const validateForm = () => {
-    if (!formData.name.trim()) {
+    if (!formData.full_name.trim()) {
       setError('Name is required');
       return false;
     }
@@ -74,15 +75,16 @@ export default function ApplyForm() {
 
     try {
       await submitApplication({
-        name: formData.name,
+        full_name: formData.full_name,
         phone: formData.phone,
         service_id: service.id,
         pincode: formData.pincode,
       });
 
-      navigate(`/confirmation?service=${service.id}&phone=${formData.phone}&name=${encodeURIComponent(formData.name)}&pincode=${formData.pincode}`, {
-        replace: true,
-      });
+      navigate(
+        `/confirmation?service=${service.id}&phone=${formData.phone}&name=${encodeURIComponent(formData.full_name)}&pincode=${formData.pincode}`,
+        { replace: true }
+      );
     } catch (err) {
       setError('Failed to submit application. Please try again.');
       console.error('Error:', err);
@@ -107,14 +109,14 @@ export default function ApplyForm() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="full_name" className="block text-sm font-semibold text-gray-700 mb-2">
                 Full Name
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={formData.name}
+                id="full_name"
+                name="full_name"
+                value={formData.full_name}
                 onChange={handleChange}
                 placeholder="Enter your full name"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
