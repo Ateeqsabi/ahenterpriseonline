@@ -8,6 +8,12 @@ export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
+  // 🔒 Simple password protection (optional but recommended)
+  const password = prompt("Enter admin password");
+  if (password !== "admin123") {
+    return <p style={{ padding: "20px" }}>Access Denied</p>;
+  }
+
   useEffect(() => {
     const fetchApplications = async () => {
       try {
@@ -26,7 +32,7 @@ export default function AdminDashboard() {
   }, []);
 
   const getServiceName = (serviceId: string) => {
-    return services.find((s) => s.id === serviceId)?.name || serviceId;
+    return services.find((s) => s.id === serviceId)?.name || serviceId || '-';
   };
 
   const formatDate = (dateString: string) => {
@@ -74,10 +80,14 @@ export default function AdminDashboard() {
                     <th className="px-4 py-4 text-left font-semibold text-gray-700">Date/Time</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   {applications.map((app) => (
                     <tr key={app.id} className="border-b hover:bg-gray-50 transition-colors">
-                      <td className="px-4 py-4 text-gray-800 font-medium">{app.name}</td>
+                      <td className="px-4 py-4 text-gray-800 font-medium">
+                        {app.full_name}
+                      </td>
+
                       <td className="px-4 py-4 text-gray-700">
                         <a
                           href={`tel:${app.phone}`}
@@ -86,9 +96,18 @@ export default function AdminDashboard() {
                           {app.phone}
                         </a>
                       </td>
-                      <td className="px-4 py-4 text-gray-700 font-medium">{app.pincode || '-'}</td>
-                      <td className="px-4 py-4 text-gray-700">{getServiceName(app.service_id)}</td>
-                      <td className="px-4 py-4 text-gray-600 text-sm">{formatDate(app.created_at)}</td>
+
+                      <td className="px-4 py-4 text-gray-700 font-medium">
+                        {app.pincode || '-'}
+                      </td>
+
+                      <td className="px-4 py-4 text-gray-700">
+                        {getServiceName(app.service_id)}
+                      </td>
+
+                      <td className="px-4 py-4 text-gray-600 text-sm">
+                        {formatDate(app.created_at)}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -97,7 +116,8 @@ export default function AdminDashboard() {
 
             <div className="px-4 py-4 bg-gray-50 border-t">
               <p className="text-sm text-gray-600">
-                Total applications: <span className="font-semibold">{applications.length}</span>
+                Total applications:{" "}
+                <span className="font-semibold">{applications.length}</span>
               </p>
             </div>
           </div>
