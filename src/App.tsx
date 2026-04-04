@@ -20,7 +20,9 @@ function App() {
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/apply/:id" element={<ApplyForm />} />
             <Route path="/confirmation" element={<Confirmation />} />
-            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+
+            {/* ✅ FIXED ADMIN ROUTE */}
+            <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
         </main>
         <Footer />
