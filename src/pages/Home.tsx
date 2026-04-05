@@ -10,6 +10,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      
+      {/* HERO SECTION */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
@@ -18,9 +20,34 @@ export default function Home() {
           <p className="text-xl sm:text-2xl mb-8 text-blue-100">
             {BUSINESS_INFO.description}
           </p>
+
+          {/* ✅ HOW IT WORKS (ADDED HERE) */}
+          <div className="mt-10">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-6">How it works</h3>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+                📄 Submit Details
+              </div>
+              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+                📞 We Contact You
+              </div>
+              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+                🖥️ We Assist with Application
+              </div>
+              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+                ✅ You Receive Updates
+              </div>
+            </div>
+
+            <p className="mt-4 text-sm text-blue-100">
+              We assist you in applying through official government portals and guide you at every step.
+            </p>
+          </div>
         </div>
       </section>
 
+      {/* SERVICES */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
@@ -36,6 +63,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CONTACT */}
       <section className="bg-blue-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -82,6 +110,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHY CHOOSE US (you can remove later if needed) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8 sm:p-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-8 text-center">
@@ -100,6 +129,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* DISCLAIMER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-8">
           <div className="flex items-start space-x-4">
