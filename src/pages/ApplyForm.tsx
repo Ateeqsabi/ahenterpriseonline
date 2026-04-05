@@ -100,7 +100,7 @@ export default function ApplyForm() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ✅ DISCLAIMER ADDED HERE */}
+        {/* ✅ CLEAN & CRISP DISCLAIMER */}
         <div className="mb-6 bg-amber-50 border-l-4 border-amber-500 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <div className="text-amber-600 mt-1">⚠️</div>
@@ -109,11 +109,8 @@ export default function ApplyForm() {
                 Important Disclaimer
               </h3>
               <p className="text-sm text-amber-800 mt-1">
-                We are a private service provider and are not affiliated with any government organization.
-                We assist in application processing and documentation.
-              </p>
-              <p className="text-xs text-gray-600 mt-2">
-                You can also apply directly through official government portals.
+                We are a private service provider and not affiliated with any government body. 
+                We assist with application processing and documentation.
               </p>
             </div>
           </div>
