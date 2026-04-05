@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as Icons from 'lucide-react';
 import { services } from '../data/services';
 import { submitApplication } from '../lib/supabase';
@@ -18,6 +18,11 @@ export default function ApplyForm() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+
+  // ✅ FIX SCROLL POSITION
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!service) {
     return (
@@ -67,9 +72,7 @@ export default function ApplyForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsLoading(true);
 
@@ -96,6 +99,26 @@ export default function ApplyForm() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ✅ DISCLAIMER ADDED HERE */}
+        <div className="mb-6 bg-amber-50 border-l-4 border-amber-500 rounded-lg p-4">
+          <div className="flex items-start gap-3">
+            <div className="text-amber-600 mt-1">⚠️</div>
+            <div>
+              <h3 className="text-md font-semibold text-amber-900">
+                Important Disclaimer
+              </h3>
+              <p className="text-sm text-amber-800 mt-1">
+                We are a private service provider and are not affiliated with any government organization.
+                We assist in application processing and documentation.
+              </p>
+              <p className="text-xs text-gray-600 mt-2">
+                You can also apply directly through official government portals.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="flex items-center mb-8">
             <div className="bg-blue-100 p-3 rounded-lg">
@@ -108,34 +131,33 @@ export default function ApplyForm() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+
             <div>
-              <label htmlFor="full_name" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Full Name
               </label>
               <input
                 type="text"
-                id="full_name"
                 name="full_name"
                 value={formData.full_name}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                 disabled={isLoading}
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Phone Number
               </label>
               <input
                 type="tel"
-                id="phone"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Enter 10-digit phone number"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                 disabled={isLoading}
               />
               <p className="text-sm text-gray-500 mt-1">
@@ -144,22 +166,18 @@ export default function ApplyForm() {
             </div>
 
             <div>
-              <label htmlFor="pincode" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Pincode
               </label>
               <input
                 type="text"
-                id="pincode"
                 name="pincode"
                 value={formData.pincode}
                 onChange={handleChange}
                 placeholder="Enter 6-digit pincode"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                 disabled={isLoading}
               />
-              <p className="text-sm text-gray-500 mt-1">
-                Enter your area pincode for faster processing
-              </p>
             </div>
 
             {error && (
@@ -171,15 +189,17 @@ export default function ApplyForm() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg"
             >
               {isLoading ? 'Submitting...' : 'Submit Application'}
             </button>
+
           </form>
 
           <p className="text-sm text-gray-600 text-center mt-6">
-            By submitting, you agree to be contacted by our team via WhatsApp and phone.
+            By submitting, you agree to be contacted via WhatsApp and phone.
           </p>
+
           <p className="text-sm text-gray-500 text-center mt-4">
             Our service center: {CONTACT_INFO.address}
           </p>
