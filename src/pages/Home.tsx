@@ -22,7 +22,10 @@ export default function Home() {
 
           {/* ✅ UPDATED SUBHEADING */}
           <p className="text-lg sm:text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-            Fast • Simple • Hassle-Free Assistance for PAN, Aadhaar, Passport & More
+              Fast • Simple • Hassle-Free Assistance for{' '}
+              <span className="text-white font-semibold whitespace-nowrap">
+                    PAN, Aadhaar, Passport & More
+              </span>
           </p>
 
           {/* ✅ CTA BUTTON (HIGH CONVERSION) */}
