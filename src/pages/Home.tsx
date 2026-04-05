@@ -144,7 +144,7 @@ export default function Home() {
               </p>
 
               <a
-                href="https://maps.google.com/?q=12+15th+Cross+Davis+Road+Bangalore"
+                href="https://share.google/RAGBzGJ61xUgy9YiL"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-2 bg-green-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 transition"
