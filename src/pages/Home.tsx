@@ -21,24 +21,57 @@ export default function Home() {
             {BUSINESS_INFO.description}
           </p>
 
-          {/* ✅ HOW IT WORKS (ADDED HERE) */}
+          {/* ✅ HOW IT WORKS - UPDATED */}
           <div className="mt-10">
             <h3 className="text-xl sm:text-2xl font-semibold mb-6">How it works</h3>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+            {/* DESKTOP FLOW */}
+            <div className="hidden md:flex items-center justify-between gap-3 text-sm">
+              
+              <div className="bg-green-500 text-white font-semibold px-4 py-3 rounded-lg">
                 🖱️ Click Apply Now
               </div>
-              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+
+              <span className="text-white text-xl">→</span>
+
+              <div className="bg-white bg-opacity-10 px-4 py-3 rounded-lg">
                 📄 Submit Your Details
               </div>
-              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+
+              <span className="text-white text-xl">→</span>
+
+              <div className="bg-white bg-opacity-10 px-4 py-3 rounded-lg">
                 📞 We Contact You
               </div>
-              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+
+              <span className="text-white text-xl">→</span>
+
+              <div className="bg-white bg-opacity-10 px-4 py-3 rounded-lg">
                 🖥️ We Assist with Application
               </div>
-              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+
+              <span className="text-white text-xl">→</span>
+
+              <div className="bg-white bg-opacity-10 px-4 py-3 rounded-lg">
+                ✅ You Receive Updates
+              </div>
+            </div>
+
+            {/* MOBILE VERSION */}
+            <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-center">
+              <div className="bg-green-500 text-white font-semibold p-3 rounded-lg">
+                🖱️ Click Apply Now
+              </div>
+              <div className="bg-white bg-opacity-10 p-3 rounded-lg">
+                📄 Submit Your Details
+              </div>
+              <div className="bg-white bg-opacity-10 p-3 rounded-lg">
+                📞 We Contact You
+              </div>
+              <div className="bg-white bg-opacity-10 p-3 rounded-lg">
+                🖥️ We Assist with Application
+              </div>
+              <div className="bg-white bg-opacity-10 p-3 rounded-lg">
                 ✅ You Receive Updates
               </div>
             </div>
@@ -113,7 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US (you can remove later if needed) */}
+      {/* WHY CHOOSE US */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8 sm:p-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-8 text-center">
