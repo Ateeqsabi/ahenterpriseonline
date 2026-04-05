@@ -14,14 +14,26 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          
+          {/* ✅ UPDATED HEADING */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            {BUSINESS_INFO.tagline}
+            Get Expert Help with Your Applications
           </h1>
-          <p className="text-xl sm:text-2xl mb-8 text-blue-100">
-            {BUSINESS_INFO.description}
+
+          {/* ✅ UPDATED SUBHEADING */}
+          <p className="text-lg sm:text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+            Fast • Simple • Hassle-Free Assistance for PAN, Aadhaar, Passport & More
           </p>
 
-          {/* ✅ HOW IT WORKS - UPDATED */}
+          {/* ✅ CTA BUTTON (HIGH CONVERSION) */}
+          <a
+            href="/services"
+            className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition"
+          >
+            Apply Now
+          </a>
+
+          {/* HOW IT WORKS */}
           <div className="mt-10">
             <h3 className="text-xl sm:text-2xl font-semibold mb-6">How it works</h3>
 
