@@ -27,7 +27,10 @@ export default function Home() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
               <div className="bg-white bg-opacity-10 p-4 rounded-lg">
-                📄 Submit Details
+                🖱️ Click Apply Now
+              </div>
+              <div className="bg-white bg-opacity-10 p-4 rounded-lg">
+                📄 Submit Your Details
               </div>
               <div className="bg-white bg-opacity-10 p-4 rounded-lg">
                 📞 We Contact You
