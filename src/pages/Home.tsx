@@ -15,20 +15,17 @@ export default function Home() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
-          {/* ✅ UPDATED HEADING */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
             Get Expert Help with Your Applications
           </h1>
 
-          {/* ✅ UPDATED SUBHEADING */}
           <p className="text-lg sm:text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              Fast • Simple • Hassle-Free Assistance for{' '}
-              <span className="text-white font-semibold whitespace-nowrap">
-                    PAN, Aadhaar, Passport & More
-              </span>
+            Fast • Simple • Hassle-Free Assistance for{' '}
+            <span className="text-white font-semibold whitespace-nowrap">
+              PAN, Aadhaar, Passport & More
+            </span>
           </p>
 
-          {/* ✅ CTA BUTTON (HIGH CONVERSION) */}
           <a
             href="/services"
             className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition"
@@ -40,9 +37,7 @@ export default function Home() {
           <div className="mt-10">
             <h3 className="text-xl sm:text-2xl font-semibold mb-6">How it works</h3>
 
-            {/* DESKTOP FLOW */}
             <div className="hidden md:flex items-center justify-between gap-3 text-sm">
-              
               <div className="bg-green-500 text-white font-semibold px-4 py-3 rounded-lg">
                 🖱️ Click Apply Now
               </div>
@@ -72,7 +67,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* MOBILE VERSION */}
             <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-center">
               <div className="bg-green-500 text-white font-semibold p-3 rounded-lg">
                 🖱️ Click Apply Now
@@ -125,6 +119,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* CALL */}
             <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
               <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Phone size={32} />
@@ -135,16 +131,29 @@ export default function Home() {
               </a>
             </div>
 
+            {/* VISIT */}
             <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
               <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin size={32} />
               </div>
+
               <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-              <p className="text-blue-100">
+
+              <p className="text-blue-100 mb-3">
                 {CONTACT_INFO.address}
               </p>
+
+              <a
+                href="https://maps.google.com/?q=12+15th+Cross+Davis+Road+Bangalore"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-2 bg-green-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 transition"
+              >
+                📍 Get Directions
+              </a>
             </div>
 
+            {/* WHATSAPP */}
             <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
               <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MessageCircle size={32} />
@@ -157,6 +166,7 @@ export default function Home() {
                 Chat Now
               </button>
             </div>
+
           </div>
         </div>
       </section>
