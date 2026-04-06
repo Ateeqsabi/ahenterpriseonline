@@ -8,7 +8,6 @@ export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // 🔒 Simple password protection (optional but recommended)
   const password = prompt("Enter admin password");
   if (password !== "admin123") {
     return <p style={{ padding: "20px" }}>Access Denied</p>;
@@ -77,6 +76,7 @@ export default function AdminDashboard() {
                     <th className="px-4 py-4 text-left font-semibold text-gray-700">Phone</th>
                     <th className="px-4 py-4 text-left font-semibold text-gray-700">Pincode</th>
                     <th className="px-4 py-4 text-left font-semibold text-gray-700">Service</th>
+                    <th className="px-4 py-4 text-left font-semibold text-gray-700">Details</th> {/* ✅ NEW */}
                     <th className="px-4 py-4 text-left font-semibold text-gray-700">Date/Time</th>
                   </tr>
                 </thead>
@@ -84,6 +84,7 @@ export default function AdminDashboard() {
                 <tbody>
                   {applications.map((app) => (
                     <tr key={app.id} className="border-b hover:bg-gray-50 transition-colors">
+                      
                       <td className="px-4 py-4 text-gray-800 font-medium">
                         {app.full_name}
                       </td>
@@ -105,9 +106,21 @@ export default function AdminDashboard() {
                         {getServiceName(app.service_id)}
                       </td>
 
+                      {/* ✅ DESCRIPTION COLUMN */}
+                      <td className="px-4 py-4 text-gray-600 text-sm max-w-xs">
+                        {app.description ? (
+                          <div className="bg-gray-50 p-2 rounded break-words">
+                            {app.description}
+                          </div>
+                        ) : (
+                          '-'
+                        )}
+                      </td>
+
                       <td className="px-4 py-4 text-gray-600 text-sm">
                         {formatDate(app.created_at)}
                       </td>
+
                     </tr>
                   ))}
                 </tbody>
