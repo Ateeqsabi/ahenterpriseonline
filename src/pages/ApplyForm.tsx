@@ -14,6 +14,7 @@ export default function ApplyForm() {
     full_name: '',
     phone: '',
     pincode: '',
+    description: '',
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +36,7 @@ export default function ApplyForm() {
 
   const IconComponent = Icons[service.icon as keyof typeof Icons] as React.ElementType;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -81,6 +82,7 @@ export default function ApplyForm() {
         phone: formData.phone,
         service_id: service.id,
         pincode: formData.pincode,
+        description: formData.description,
       });
 
       navigate(
@@ -142,6 +144,9 @@ export default function ApplyForm() {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                 disabled={isLoading}
               />
+              <p className="text-sm text-gray-500 mt-1">
+                Enter your full name exactly as per your Aadhaar or official documents
+              </p>
             </div>
 
             {/* PHONE */}
@@ -179,6 +184,24 @@ export default function ApplyForm() {
               />
               <p className="text-sm text-gray-500 mt-1">
                 Enter the pincode of the address as per your Aadhaar or supporting documents
+              </p>
+            </div>
+
+            {/* DESCRIPTION */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Additional Details (Optional)
+              </label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="Describe your requirement (e.g., name correction, lost PAN, etc.)"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                rows={3}
+              />
+              <p className="text-sm text-gray-500 mt-1">
+                Share any specific details about your request to help us assist you better
               </p>
             </div>
 
