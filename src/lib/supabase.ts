@@ -10,8 +10,9 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 export interface ApplicationData {
   full_name: string;
   phone: string;
-  service_id?: string; // optional (important fix)
+  service_id?: string; // optional
   pincode: string;
+  description?: string; // ✅ ADDED (optional)
 }
 
 export interface Application extends ApplicationData {
@@ -19,7 +20,7 @@ export interface Application extends ApplicationData {
   created_at: string;
 }
 
-// ✅ FIXED INSERT FUNCTION
+// ✅ UPDATED INSERT FUNCTION
 export async function submitApplication(data: ApplicationData) {
   // Build clean payload (no undefined values)
   const payload: any = {
@@ -31,6 +32,11 @@ export async function submitApplication(data: ApplicationData) {
   // Only include service_id if present
   if (data.service_id) {
     payload.service_id = data.service_id;
+  }
+
+  // ✅ Include description only if provided
+  if (data.description) {
+    payload.description = data.description;
   }
 
   console.log("Submitting payload:", payload); // debug
