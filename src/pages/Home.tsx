@@ -26,21 +26,19 @@ export default function Home() {
             </span>
           </p>
 
-          <a
-            href="/services"
-            className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition"
-          >
-            Apply Now
-          </a>
-
           {/* HOW IT WORKS */}
           <div className="mt-10">
             <h3 className="text-xl sm:text-2xl font-semibold mb-6">How it works</h3>
 
+            {/* Desktop */}
             <div className="hidden md:flex items-center justify-between gap-3 text-sm">
-              <div className="bg-green-500 text-white font-semibold px-4 py-3 rounded-lg">
-                🖱️ Click Apply Now
-              </div>
+              
+              <a
+                href="/services"
+                className="bg-green-500 text-white font-semibold px-4 py-3 rounded-lg inline-block hover:bg-green-600 transition"
+              >
+                🖱️ Start Your Application
+              </a>
 
               <span className="text-white text-xl">→</span>
 
@@ -67,19 +65,28 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Mobile */}
             <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-center">
-              <div className="bg-green-500 text-white font-semibold p-3 rounded-lg">
-                🖱️ Click Apply Now
-              </div>
+              
+              <a
+                href="/services"
+                className="bg-green-500 text-white font-semibold p-3 rounded-lg block hover:bg-green-600 transition"
+              >
+                🖱️ Start Your Application
+              </a>
+
               <div className="bg-white bg-opacity-10 p-3 rounded-lg">
                 📄 Submit Your Details
               </div>
+
               <div className="bg-white bg-opacity-10 p-3 rounded-lg">
                 📞 We Contact You
               </div>
+
               <div className="bg-white bg-opacity-10 p-3 rounded-lg">
                 🖥️ We Assist with Application
               </div>
+
               <div className="bg-white bg-opacity-10 p-3 rounded-lg">
                 ✅ You Receive Updates
               </div>
@@ -120,7 +127,6 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            {/* CALL */}
             <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
               <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Phone size={32} />
@@ -131,7 +137,6 @@ export default function Home() {
               </a>
             </div>
 
-            {/* VISIT */}
             <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
               <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin size={32} />
@@ -153,7 +158,6 @@ export default function Home() {
               </a>
             </div>
 
-            {/* WHATSAPP */}
             <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
               <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MessageCircle size={32} />
