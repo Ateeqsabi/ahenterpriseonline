@@ -19,7 +19,6 @@ export default function ApplyForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // ✅ FIX SCROLL POSITION
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -100,7 +99,7 @@ export default function ApplyForm() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ✅ CLEAN & CRISP DISCLAIMER */}
+        {/* DISCLAIMER */}
         <div className="mb-6 bg-amber-50 border-l-4 border-amber-500 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <div className="text-amber-600 mt-1">⚠️</div>
@@ -129,6 +128,7 @@ export default function ApplyForm() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
 
+            {/* FULL NAME */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Full Name
@@ -144,6 +144,7 @@ export default function ApplyForm() {
               />
             </div>
 
+            {/* PHONE */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Phone Number
@@ -162,6 +163,7 @@ export default function ApplyForm() {
               </p>
             </div>
 
+            {/* PINCODE */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Pincode
@@ -175,6 +177,9 @@ export default function ApplyForm() {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                 disabled={isLoading}
               />
+              <p className="text-sm text-gray-500 mt-1">
+                Enter the pincode of the address as per your Aadhaar or supporting documents
+              </p>
             </div>
 
             {error && (
